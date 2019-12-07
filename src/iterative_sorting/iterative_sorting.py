@@ -1,4 +1,9 @@
 # TO-DO: Complete the selection_sort() function below 
+# Algorithm
+# - Start with current index = 0
+# - For all indices EXCEPT the last index:
+# -- a. Loop through elements on right-hand-side of current index and find the smallest element
+# -- b. Swap the element at current index with the smallest element found in above loop
 def selection_sort( arr ):
     # loop through n-1 elements
     for i in range(0, len(arr) - 1):
@@ -6,12 +11,12 @@ def selection_sort( arr ):
         smallest_index = cur_index
         # TO-DO: find next smallest element
         # (hint, can do in 3 loc) 
-             
-
-
+        for j in range(i, len(arr)):
+            if arr[j] < arr[smallest_index]:
+                smallest_index = j
 
         # TO-DO: swap
-
+        arr[i], arr[smallest_index] = arr[smallest_index], arr[i]
 
 
 

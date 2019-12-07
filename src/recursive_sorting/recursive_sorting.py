@@ -1,11 +1,12 @@
 # TO-DO: complete the helper function below to merge 2 sorted arrays
-def merge( arrA, arrB ):
-    elements = len( arrA ) + len( arrB )
+def merge(arrA, arrB):
+    lenA, lenB = len(arrA), len(arrB)
+    elements = lenA + lenB
     merged_arr = [0] * elements
     # TO-DO
     
     i = j = k = 0
-    while i < len( arrA ) and j < len( arrB ):
+    while i < lenA and j < lenB:
         if arrA[i] <= arrB[j]:
             merged_arr[k] = arrA[i]
             i += 1
@@ -14,10 +15,20 @@ def merge( arrA, arrB ):
             j += 1
         k += 1
     
-    return merged_arr, i, j, k
+    while i < lenA:
+        merged_arr[k] = arrA[i]
+        i += 1
+        k += 1
+     
+    while j < lenB:
+        merged_arr[k] = arrA[j]
+        j += 1
+        k += 1
+        
+    print(merged_arr)
+    return merged_arr
 
-print(merge([1, 3, 9], [2, 5, 8, 9, 10]))
-
+# merge([0,2,4,6,8,10], [1,3,5,7,9])
 
 # TO-DO: implement the Merge Sort function below USING RECURSION
 # Algorithm
@@ -26,11 +37,20 @@ print(merge([1, 3, 9], [2, 5, 8, 9, 10]))
 #    (a single element cannot be "out of order")
 # 3. Start merging your single lists of one element together into larger, sorted sets
 # 4. Repeat step 3 until the entire data set has been reassembled
-def merge_sort( arr ):
+def merge_sort(arr):
     # TO-DO
-
+    i = raw_input("Hit enter to continue")
+    lenArr = len(arr)
+    while lenArr > 1:
+        half = lenArr // 2
+        print(half, lenArr)
+        merge(merge_sort(arr[:half]), merge_sort(arr[half:lenArr]))
+        
+    # print arr
+    print "Returning array"
     return arr
 
+merge_sort([1, 8, 2])
 
 # STRETCH: implement an in-place merge sort algorithm
 def merge_in_place(arr, start, mid, end):
@@ -46,6 +66,6 @@ def merge_sort_in_place(arr, l, r):
 
 # STRETCH: implement the Timsort function below
 # hint: check out https://github.com/python/cpython/blob/master/Objects/listsort.txt
-def timsort( arr ):
+def timsort(arr):
 
     return arr

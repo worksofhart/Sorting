@@ -19,8 +19,20 @@ def selection_sort( arr ):
 
 
 # TO-DO:  implement the Bubble Sort function below
+# Algorithm
+# - Loop through your array
+# - Compare each element to its neighbor
+# - If elements in wrong position (relative to each other, swap them)
+# - If no swaps performed, stop. Else, go back to the element at index 0 and repeat step 1.
 def bubble_sort( arr ):
-
+    swaps = True
+    while swaps:
+        swaps = False
+        for i in range(1, len(arr)):
+            if arr[i-1] > arr[i]:
+                arr[i-1], arr[i] = arr[i], arr[i-1]
+                swaps = True    
+                
     return arr
 
 

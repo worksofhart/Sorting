@@ -47,6 +47,8 @@ def merge_in_place(arr, start, mid, end):
         return
 
     while start <= mid and right_start <= end:
+        # Merge in place by removing lower values from the right portion
+        # and inserting them into the correct place in the left
         if arr[start] <= arr[right_start]:
             start += 1
         else:
